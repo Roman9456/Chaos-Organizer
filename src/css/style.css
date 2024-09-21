@@ -1,0 +1,185 @@
+/* Основные стили */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono', monospace;
+  background: #0d0d0d;
+  color: #00ff00;
+  overflow: hidden;
+}
+
+/* Заголовки */
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #00ff00;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px #00ff00, 0 0 15px #00ff00;
+  animation: neon-glow 1.5s ease-in-out infinite alternate;
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 10px;
+}
+
+@keyframes neon-glow {
+  0% {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+  }
+}
+
+/* Контейнеры */
+.container {
+  width: 80%; /* Увеличенная ширина */
+  min-width: 800px; /* Также увеличена минимальная ширина */
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  border: 2px solid #00ff00;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.7), 0 0 50px rgba(0, 255, 0, 0.1);
+  position: relative;
+}
+
+.container:hover {
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.7);
+  transform: scale(1.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Заголовок */
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #00ff00;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #ff3333;
+  text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333;
+  animation: header-fade-in 1.5s ease-out forwards;
+}
+
+/* Кнопки в заголовке */
+.header-search,
+.header-geo,
+.header-sharedMedia,
+.header-recordAudio,
+.header-recordVideo {
+  margin-right: 10px;
+  padding: 8px;
+  background-color: #282828;
+  border-radius: 4px;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.header-search:hover,
+.header-geo:hover,
+.header-sharedMedia:hover,
+.header-recordAudio:hover,
+.header-recordVideo:hover {
+  background-color: #00ff00;
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 0 10px #00ff00;
+}
+
+/* Контент */
+.container-content {
+  height: 500px;
+  background: #0d0d0d;
+  border-radius: 8px;
+  overflow-y: scroll;
+  border: 2px solid #00ff00;
+  box-shadow: inset 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+.content-message {
+  background-color: #1a1a1a;
+  border: 2px solid #00ff00;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
+  color: #00ff00;
+  font-family: 'Roboto Mono', monospace;
+  animation: fade-in-message 0.5s ease-out forwards;
+}
+
+@keyframes fade-in-message {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Медиа */
+.content-image,
+.content-video,
+.content-audio {
+  border: 2px solid #ff3333;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 51, 51, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-image:hover,
+.content-video:hover,
+.content-audio:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.8);
+}
+
+/* Футер */
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #00ff00;
+  padding-top: 10px;
+}
+
+.footer-messageInput {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #282828;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  color: #00ff00;
+  transition: border-color 0.3s ease;
+}
+
+.footer-messageInput:focus {
+  border-color: #ff3333;
+  box-shadow: 0 0 10px #ff3333;
+}
+
+.footer-uploadFile {
+  width: 90px;
+  margin-left: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.footer-uploadFile {
+  position: relative;
+  margin-left: 10px;
+}
+
+.overlapped {
+  display: none; /* Скрыть элемент input[type="file"] */
+}
+
