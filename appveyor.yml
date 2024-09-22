@@ -1,14 +1,16 @@
+image: Ubuntu2204
+
 branches:
   only:
     - main
 
 environment:
   matrix:
-    - nodejs_version: "18.18.0" 
+    - nodejs_version: "18.0.0"
 
 init:
   - echo "Installing NVM..."
-  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+  - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
   - export NVM_DIR="$HOME/.nvm"
   - source "$NVM_DIR/nvm.sh"
   - echo "Installing Node.js..."
@@ -43,4 +45,5 @@ deploy_script:
   - cd gh-pages
   - git add .
   - git commit -m "Deploy to GitHub Pages"
-  - git push origin
+  - git push origin gh-pages
+  - echo "Deployment complete."
