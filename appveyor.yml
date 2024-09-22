@@ -39,7 +39,7 @@ deploy_script:
   - git config --global user.name "Roman9456"
   - git config --global user.email "smolyakov_ra@mail.ru"
   - echo "https://${GITHUB_TOKEN}:x-oauth-basic@github.com" > "$HOME/.git-credentials"
-  - git clone --branch gh-pages https://github.com/Roman9456/trello-board.git gh-pages
+  - git clone --branch gh-pages https://github.com/Roman9456/Chaos-Organizer.git gh-pages
   - rm -rf gh-pages/*
   - cp -r dist/* gh-pages/
   - cd gh-pages
