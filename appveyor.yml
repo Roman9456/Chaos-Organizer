@@ -1,12 +1,10 @@
-image: Ubuntu2204
-
 branches:
   only:
     - main
 
 environment:
   matrix:
-    - nodejs_version: "18.12.0"
+    - nodejs_version: "18.18.0" 
 
 init:
   - echo "Installing NVM..."
@@ -45,5 +43,4 @@ deploy_script:
   - cd gh-pages
   - git add .
   - git commit -m "Deploy to GitHub Pages"
-  - git push origin gh-pages
-  - echo "Deployment complete."
+  - git push origin
