@@ -117,39 +117,41 @@ export default class Bot {
 
     addContent(fileData, fileType, prepend = false) {
         let contentElement;
-      
+    
         const byteArray = new Uint8Array(fileData.value);
         const blob = new Blob([byteArray], { type: fileData.fileType });
-        const file = new File([blob], fileData.filename, {
-          type: fileData.fileType,
-          lastModified: fileData.lastModified,
-        });
-      
+        const fileUrl = URL.createObjectURL(blob); // Используем Blob напрямую
+    
         if (fileType === 'audio') {
-          contentElement = document.createElement('audio');
-          contentElement.controls = true;
-          contentElement.src = URL.createObjectURL(file);
+            contentElement = document.createElement('audio');
+            contentElement.controls = true;
+            contentElement.src = fileUrl;
         } else if (fileType === 'video') {
-          contentElement = document.createElement('video');
-          contentElement.controls = true;
-          contentElement.src = URL.createObjectURL(file);
+            contentElement = document.createElement('video');
+            contentElement.controls = true;
+            contentElement.src = fileUrl;
         } else {
-          contentElement = document.createElement('img');
-          contentElement.src = URL.createObjectURL(file);
+            contentElement = document.createElement('img');
+            contentElement.src = fileUrl;
         }
-      
+    
         contentElement.className = 'content-' + fileType;
-      
+    
         const contentContainer = document.createElement('div');
         contentContainer.className = 'content-' + 'file' + 'Container';
         contentContainer.append(contentElement);
-      
+    
         if (prepend) {
             this.containerContent.prepend(contentContainer);
         } else {
             this.containerContent.append(contentContainer);
         }
-      }
+    
+
+        contentElement.addEventListener('load', () => {
+            URL.revokeObjectURL(fileUrl); 
+        });
+    }
 
     addTextMessage(message, prepend = false) {
         if (message === '') {
